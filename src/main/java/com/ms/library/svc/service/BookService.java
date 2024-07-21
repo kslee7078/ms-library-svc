@@ -1,6 +1,5 @@
 package com.ms.library.svc.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ms.library.svc.constant.CommonConstant;
 import com.ms.library.svc.exception.GenericBadException;
 import com.ms.library.svc.model.dto.BookCopyRequestDTO;
@@ -17,13 +16,11 @@ import com.ms.library.svc.repository.BookRepository;
 import com.ms.library.svc.repository.BorrowerRepository;
 import com.ms.library.svc.utils.CommonUtils;
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +34,6 @@ public class BookService {
   private final BookRepository bookRepository;
   private final BookCopyRepository bookCopyRepository;
   private final BorrowerRepository borrowerRepository;
-  private final ObjectMapper objectMapper;
 
   @Transactional
   public BookResponseDTO registerBook(BookRequestDTO bookRequestDTO) {
@@ -106,7 +102,7 @@ public class BookService {
 
   @Transactional
   public BookResponseDTO borrowBook(BookCopyRequestDTO bookCopyRequestDTO) {
-    BookResponseDTO bookResponseDTO = new BookResponseDTO();
+    BookResponseDTO bookResponseDTO;
 
     if (ObjectUtils.isEmpty(bookCopyRequestDTO.getBookCode()) || ObjectUtils.isEmpty(bookCopyRequestDTO.getBorrowerId())) {
       log.info("[borrowBook] hit error, mandatory field is not complete, {}", bookCopyRequestDTO);

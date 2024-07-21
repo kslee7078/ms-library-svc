@@ -12,6 +12,4 @@ public enum StatusCode {
 
   private final String statusCode;
   private final String statusDescription;
-
-
 }

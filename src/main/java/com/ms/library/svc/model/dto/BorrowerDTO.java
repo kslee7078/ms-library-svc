@@ -1,8 +1,5 @@
 package com.ms.library.svc.model.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
 import java.io.Serializable;
 import java.time.OffsetDateTime;
 import java.util.UUID;
