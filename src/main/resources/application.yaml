@@ -16,7 +16,7 @@ spring:
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
     driver-class-name: org.postgresql.Driver
     username: ${DATABASE_USERNAME:postgres}
-    password: ${DATABASE_PASSWORD:postgres}
+    password: ${DATABASE_PASSWORD:password}
     hikari:
       idleTimeout: 300000
       maximumPoolSize: 20
@@ -29,13 +29,13 @@ spring:
     open-in-view: false
     properties:
       hibernate:
-        default_schema: ${DB_SCHEMA:forex}
+        default_schema: ${DB_SCHEMA:library}
         format_sql: true
   flyway:
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
     user: ${DATABASE_USERNAME_FLYWAY:postgres}
-    password: ${DATABASE_PASSWORD_FLYWAY:postgres}
-    schemas: ${DATABASE_SCHEMA:forex}
+    password: ${DATABASE_PASSWORD_FLYWAY:password}
+    schemas: ${DATABASE_SCHEMA:library}
     baseline-on-migrate: ${FLYWAY_BASELINE_MIGRATE:true}
     locations: classpath:db/migration
     enabled: true
