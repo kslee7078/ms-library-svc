@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class BookController {
 
-  private BookService bookService;
+  private final BookService bookService;
 
   @ResponseStatus(HttpStatus.OK)
   @PostMapping(value = ResourcePath.REGISTER_BOOK)

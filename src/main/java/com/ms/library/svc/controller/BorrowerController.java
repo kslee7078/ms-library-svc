@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class BorrowerController {
 
-  private BorrowerService borrowerService;
+  private final BorrowerService borrowerService;
 
   @ResponseStatus(HttpStatus.OK)
   @GetMapping(value = ResourcePath.GET_BORROWER_BY_STATUS)
